@@ -1,5 +1,10 @@
 #include <password_check.h>
 #include <regex>
+#include <sstream>
+#include <fstream>
+#include <string>
+#include <stream>
+#include <iostream>
 
 
 bool pass_check(std::string& password) {
@@ -43,5 +48,39 @@ bool pass_check(std::string& password) {
         }
 
     }
+    return false;
+}
+
+
+bool correct_password_check(const std::string& file_path, const std::string& site, const std::string& input_login, const std::string& input_pass) {
+    std::ifstream file(file_path);
+    if (!file.is_open()) {
+        std::cerr << "Error: Could not open file " << file_path << " for reading." << std::endl;
+        return false;
+    }
+
+    std::string line;
+    while (std::getline(file, line)) {
+        std::stringstream ss(line);
+        std::string stored_site, stored_login, stored_pass;
+
+        std::getline(ss, stored_site, ',');
+        std::getline(ss, stored_login, ',');
+        std::getline(ss, stored_pass, ',');
+
+        if (stored_site == site) {
+            if (stored_login != input_login || stored_pass != input_pass) {
+                std::cout << "Podany login lub has³o jest niepoprawne" << std::endl;
+                file.close();
+                return false;
+            }
+            else {
+                file.close();
+                return true;
+            }
+        }
+    }
+
+    file.close();
     return false;
 }
