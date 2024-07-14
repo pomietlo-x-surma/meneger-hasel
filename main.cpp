@@ -17,7 +17,7 @@ int main() {
         std::regex_search(napis, wzorzec_AZ) &&
         std::regex_search(napis, wzorzec_az) &&
         std::regex_search(napis, wzorzec_rozmiar)) {
-        std::cout << "Haslo jest poprawne!" << std::endl;
+        std::cout << "Pasuje!" << std::endl;
     }
     else {
         if (!std::regex_search(napis, wzorzec_nalfa)) {
@@ -37,7 +37,7 @@ int main() {
                 std::cout << "Haslo musi miec dlugosc przynajmniej 8 znakow!" << std::endl;
             }
             else {
-                std::cout << "Zbyt dlugie haslo!" << std::endl;
+                std::cout << "Haslo za dlugie!" << std::endl;
             }
             
         }
