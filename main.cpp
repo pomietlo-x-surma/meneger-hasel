@@ -2,6 +2,11 @@
 #include <iostream>
 #include <string>
 
+bool pass_check() {
+	
+}
+
+
 int main() {
     std::string napis = "^8A2aaaaaaaaa";
     std::regex wzorzec_nalfa("[^a-zA-Z0-9\\s]"); // znak specjalny
