@@ -49,7 +49,7 @@ bool pass_check(std::string password) {
 
 int main() {
     std::string napis = "^8A2aaaaaaaaa";
-    cout  << 
+    std::cout << pass_check(napis);
 
 
     return 0;
