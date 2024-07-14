@@ -2,7 +2,7 @@
 #include <iostream>
 #include <string>
 
-bool pass_check(std::string password) {
+bool pass_check(std::string& password) {
     std::regex wzorzec_nalfa("[^a-zA-Z0-9\\s]"); // znak specjalny
     std::regex wzorzec_liczba("[0-9]");         // cyfra
     std::regex wzorzec_AZ("[A-Z]");             // duża litera
